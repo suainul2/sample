@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout act
+        uses: actions/checkout@v2
 
       - name: Deploy Using ssh
         uses: suainul2/sample@master
