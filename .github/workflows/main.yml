@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout act
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Deploy Using ssh
-        uses: suainul2/sample@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
