@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Deploy Using ssh
-        uses: appleboy/ssh-action@master
+        uses: suainul/sample@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
@@ -23,7 +23,5 @@ jobs:
             cd /var/www/sample
             git pull origin master
             git status
-            yarn install
-            yarn build
-            pm2 reload ExampleCiCdAutoDeployVps
-            pm2 restart ExampleCiCdAutoDeployVps
+            npm install
+            npm build
