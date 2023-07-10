@@ -22,5 +22,8 @@ jobs:
           node-version: 14
           check-latest: true
 
+      - name: Install dependencies 👨🏻‍💻
+        run: npm install
+
       - name: Run tests 🧪
-        run: npm test
+        run: yarn test
