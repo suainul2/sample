@@ -1,0 +1,33 @@
+name: Deploy Using SSH
+description: Deploy code to a remote server using SSH
+inputs:
+  host:
+    description: 'SSH host'
+    required: true
+  username:
+    description: 'SSH username'
+    required: true
+  key:
+    description: 'SSH private key'
+    required: true
+  port:
+    description: 'SSH port'
+    required: false
+    default: '22'
+  script:
+    description: 'Script to execute on the remote server'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy code
+      run: |
+        ssh -o StrictHostKeyChecking=no -p ${{ inputs.port }} ${inputs.username}@${inputs.host} '${inputs.script}'
