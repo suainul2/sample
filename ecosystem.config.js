@@ -8,7 +8,7 @@ module.exports = {
       args: 'start',
       env_production: {
         "PORT": 4000,
-        "HOST": "157.245.196.92",
+        "HOST": "0.0.0.0",
         "NODE_ENV": "production"
       }
     }

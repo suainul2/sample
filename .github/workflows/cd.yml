@@ -23,3 +23,5 @@ jobs:
             cd /var/www/sample
             git pull origin master
             git status
+            pm2 reload 0
+            pm2 start 0
