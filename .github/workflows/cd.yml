@@ -11,7 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - name: Install pm2
+        run: npm install pm2 -g
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
