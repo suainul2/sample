@@ -11,8 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install pm2
-        run: npm install pm2 -g
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
@@ -20,7 +18,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: |
+          run: |
             cd /var/www/sample
             git pull origin master
             git status
